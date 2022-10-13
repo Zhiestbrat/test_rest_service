@@ -21,7 +21,7 @@ public class MyController {
     private final ModifyRequestService modifyRequestService;
 
     @Autowired
-    public MyController(@Qualifier("ModifyErrorMessage") MyModifyService myModifyService,
+    public MyController(@Qualifier("ModifySystemTime") MyModifyService myModifyService,
                         ModifyRequestService modifyRequestService) {
         this.myModifyService = myModifyService;
         this.modifyRequestService = modifyRequestService;
