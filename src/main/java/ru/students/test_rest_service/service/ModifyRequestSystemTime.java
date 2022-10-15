@@ -7,16 +7,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import ru.students.test_rest_service.model.Request;
 
+import java.util.Date;
+
 @Service
 public class ModifyRequestSystemTime implements ModifyRequestService {
     @Override
     public void modifyRq(Request request) {
 
-        request.setSystemTime("test");
+        request.setSystemTime(new Date().toString());
 
         HttpEntity<Request> httpEntity = new HttpEntity<>(request);
 
-        new RestTemplate().exchange("http://localhost:8082/feedback",
+        new RestTemplate().exchange("http://localhost:8084/feedback",
                 HttpMethod.POST,
                 httpEntity,
                 new ParameterizedTypeReference<>() {

@@ -30,7 +30,7 @@ public class MyController {
     @PostMapping(value = "/feedback")
     public ResponseEntity<Response> feedback(@RequestBody Request request) {
 
-        log.info("Входящий request : " + String.valueOf(request));
+        log.warn("Входящий request : " + String.valueOf(request));
 
         Response response = Response.builder()
                 .uid(request.getUid())
@@ -45,7 +45,7 @@ public class MyController {
 
         Response responseAfterModify = myModifyService.modify(response);
 
-        log.info("Исходящий response : " + String.valueOf(response));
+        log.warn("Исходящий response : " + String.valueOf(response));
 
         return new ResponseEntity<>(responseAfterModify, HttpStatus.OK);
     }
